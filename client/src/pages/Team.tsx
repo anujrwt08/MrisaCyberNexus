@@ -23,19 +23,19 @@ const faculty = [
 
 const coreTeam = [
   {
-    name: "Alex Chen",
+    name: "Anuj Rawat ",
     role: "President",
     bio: "Senior CS major specializing in Network Security. Interned at CrowdStrike.",
     image: malePlaceholder
   },
   {
-    name: "Sarah Jenkins",
+    name: "Harsh  ",
     role: "Vice President",
     bio: "Junior Cybersecurity major. CTF Team Captain and Reverse Engineering enthusiast.",
     image: femalePlaceholder
   },
   {
-    name: "David Kim",
+    name: "aditya ",
     role: "Technical Lead",
     bio: "Full-stack developer and AppSec researcher. Responsible for club infrastructure.",
     image: malePlaceholder
