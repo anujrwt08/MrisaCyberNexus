@@ -31,7 +31,7 @@
 
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-display: 'Orbitron', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif; /* Changed from Orbitron for cleaner look */
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -39,65 +39,58 @@
 }
 
 :root {
-  /* Dark Cyber Theme - Defaulting to dark mode aesthetics even in "light" root */
-  --background: 240 20% 3%; /* Very dark blue/black */
-  --foreground: 180 10% 90%; /* Off-white cyan tint */
+  /* Professional Dark Theme - Deep Navy & Enterprise Blue */
+  --background: 222 47% 11%; /* #0f172a Slate 900 */
+  --foreground: 210 40% 98%; /* Slate 50 */
 
-  --card: 240 25% 6%;
-  --card-foreground: 180 10% 90%;
+  --card: 217 33% 17%; /* #1e293b Slate 800 */
+  --card-foreground: 210 40% 98%;
 
-  --popover: 240 25% 6%;
-  --popover-foreground: 180 10% 90%;
+  --popover: 217 33% 17%;
+  --popover-foreground: 210 40% 98%;
 
-  --primary: 180 100% 50%; /* Neon Cyan */
-  --primary-foreground: 240 30% 10%;
+  --primary: 199 89% 48%; /* #0ea5e9 Sky 500 - Professional Tech Blue */
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 280 100% 50%; /* Neon Purple/Blue */
+  --secondary: 215 19% 35%; /* #475569 Slate 600 */
   --secondary-foreground: 210 40% 98%;
 
-  --muted: 240 20% 15%;
+  --muted: 217 33% 17%;
   --muted-foreground: 215 20% 65%;
 
-  --accent: 120 100% 50%; /* Cyber Green */
-  --accent-foreground: 240 30% 10%;
+  --accent: 160 84% 39%; /* #10b981 Emerald 500 - Success/Safe */
+  --accent-foreground: 0 0% 100%;
 
-  --destructive: 0 100% 50%; /* Alert Red */
+  --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
 
-  --border: 240 30% 20%;
-  --input: 240 30% 20%;
-  --ring: 180 100% 50%;
+  --border: 217 33% 25%; /* Lighter slate for borders */
+  --input: 217 33% 25%;
+  --ring: 199 89% 48%;
 
-  --radius: 0.25rem; /* Sharp corners for tech feel */
-
-  --chart-1: 180 100% 50%;
-  --chart-2: 280 100% 50%;
-  --chart-3: 120 100% 50%;
-  --chart-4: 0 100% 50%;
-  --chart-5: 60 100% 50%;
+  --radius: 0.5rem; /* Softened corners for modern feel */
 }
 
 .dark {
-  /* Keeping the same values since this is a dark-themed site by default */
-  --background: 240 20% 3%;
-  --foreground: 180 10% 90%;
-  --card: 240 25% 6%;
-  --card-foreground: 180 10% 90%;
-  --popover: 240 25% 6%;
-  --popover-foreground: 180 10% 90%;
-  --primary: 180 100% 50%;
-  --primary-foreground: 240 30% 10%;
-  --secondary: 280 100% 50%;
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+  --card: 217 33% 17%;
+  --card-foreground: 210 40% 98%;
+  --popover: 217 33% 17%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 199 89% 48%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 215 19% 35%;
   --secondary-foreground: 210 40% 98%;
-  --muted: 240 20% 15%;
+  --muted: 217 33% 17%;
   --muted-foreground: 215 20% 65%;
-  --accent: 120 100% 50%;
-  --accent-foreground: 240 30% 10%;
-  --destructive: 0 100% 50%;
+  --accent: 160 84% 39%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
-  --border: 240 30% 20%;
-  --input: 240 30% 20%;
-  --ring: 180 100% 50%;
+  --border: 217 33% 25%;
+  --input: 217 33% 25%;
+  --ring: 199 89% 48%;
 }
 
 @layer base {
@@ -107,48 +100,24 @@
   body {
     @apply font-sans antialiased bg-background text-foreground overflow-x-hidden;
     background-image: 
-      radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.15), transparent 50%),
-      linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-    background-size: 100% 100%, 20px 20px, 20px 20px;
+      radial-gradient(circle at 50% 0%, hsl(220 40% 20% / 0.3), transparent 70%);
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-wider uppercase;
+    @apply font-display tracking-tight;
   }
 }
 
-/* Custom Cyber Effects */
 @layer utilities {
-  .text-glow {
-    text-shadow: 0 0 10px hsl(var(--primary) / 0.7), 0 0 20px hsl(var(--primary) / 0.5);
+  .glass-panel {
+    @apply bg-card/40 backdrop-blur-md border border-white/5 shadow-xl;
   }
   
-  .text-glow-accent {
-    text-shadow: 0 0 10px hsl(var(--accent) / 0.7), 0 0 20px hsl(var(--accent) / 0.5);
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400;
   }
 
-  .border-glow {
-    box-shadow: 0 0 10px hsl(var(--primary) / 0.3), inset 0 0 5px hsl(var(--primary) / 0.1);
-  }
-
-  .bg-grid-pattern {
-    background-size: 40px 40px;
-    background-image: linear-gradient(to right, hsl(var(--primary) / 0.05) 1px, transparent 1px),
-                      linear-gradient(to bottom, hsl(var(--primary) / 0.05) 1px, transparent 1px);
-  }
-
-  .clip-path-tech {
-    clip-path: polygon(
-      0 0, 
-      100% 0, 
-      100% calc(100% - 20px), 
-      calc(100% - 20px) 100%, 
-      0 100%
-    );
-  }
-  
-  .clip-path-slant {
-    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-sky-300 to-primary;
   }
 }

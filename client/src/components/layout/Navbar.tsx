@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Link } from "wouter";
-import { Menu, X, Shield, Terminal, Cpu, Code } from "lucide-react";
+import { Link, useLocation } from "wouter";
+import { Menu, X, Shield, ChevronRight } from "lucide-react";
 import logo from "@assets/generated_images/minimalist_cybersecurity_shield_logo.png";
+import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -18,53 +19,77 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "#about" },
-    { name: "Events", href: "#events" },
-    { name: "Resources", href: "#resources" },
-    { name: "Join", href: "#join" },
+    { name: "About", href: "/about" },
+    { name: "Team", href: "/team" },
+    { name: "Events", href: "/events" },
+    { name: "Resources", href: "/resources" },
+    { name: "Join", href: "/join" },
   ];
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
+      className={cn(
+        "fixed top-0 w-full z-50 transition-all duration-300 border-b",
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-primary/50 py-2"
-          : "bg-transparent border-transparent py-4"
-      }`}
+          ? "bg-background/90 backdrop-blur-md border-border py-3 shadow-lg"
+          : "bg-transparent border-transparent py-5"
+      )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0 flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="relative w-10 h-10 overflow-hidden rounded bg-primary/10 border border-primary/30 p-1 group-hover:border-primary/80 transition-colors">
-                <img src={logo} alt="MRISA Logo" className="w-full h-full object-contain" />
-                <div className="absolute inset-0 bg-primary/20 animate-pulse" />
-              </div>
-              <span className="font-display font-bold text-xl tracking-wider text-white group-hover:text-primary transition-colors">
-                MRISA<span className="text-primary">CYBER</span>
-              </span>
+        <div className="flex items-center justify-between h-12">
+          {/* Logo Area */}
+          <div className="flex-shrink-0 flex items-center gap-3">
+            <Link href="/">
+              <a className="flex items-center gap-3 group">
+                <div className="relative w-9 h-9 overflow-hidden">
+                  <img src={logo} alt="MRISA Logo" className="w-full h-full object-contain filter brightness-100 group-hover:brightness-110 transition-all" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-display font-bold text-xl tracking-wide text-white leading-none group-hover:text-primary transition-colors">
+                    MRISA
+                  </span>
+                  <span className="text-[10px] text-gray-400 font-mono uppercase tracking-widest leading-none mt-1">
+                    Cyber Security
+                  </span>
+                </div>
+              </a>
             </Link>
           </div>
           
+          {/* Desktop Nav */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-baseline space-x-1">
               {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="relative px-3 py-2 text-sm font-mono font-medium text-gray-300 hover:text-primary transition-colors group"
-                >
-                  <span className="relative z-10">&lt;{link.name} /&gt;</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
-                </a>
+                <Link key={link.name} href={link.href}>
+                  <a
+                    className={cn(
+                      "px-4 py-2 rounded-md text-sm font-medium transition-all duration-200",
+                      location === link.href
+                        ? "text-primary bg-primary/10"
+                        : "text-gray-300 hover:text-white hover:bg-white/5"
+                    )}
+                  >
+                    {link.name}
+                  </a>
+                </Link>
               ))}
             </div>
           </div>
 
+          {/* CTA Button (Desktop) */}
+          <div className="hidden md:block">
+             <Link href="/join">
+              <a className="inline-flex items-center gap-2 px-5 py-2 bg-primary hover:bg-primary/90 text-background font-bold text-sm rounded transition-colors">
+                Member Portal <ChevronRight size={16} />
+              </a>
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-white hover:bg-primary/20 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10 focus:outline-none"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -74,24 +99,25 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-card/95 backdrop-blur-xl border-b border-primary/30"
-        >
+        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-gray-300 hover:text-primary hover:bg-primary/10 block px-3 py-2 rounded-md text-base font-medium font-mono"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
+              <Link key={link.name} href={link.href}>
+                <a
+                  className={cn(
+                    "block px-3 py-2 rounded-md text-base font-medium",
+                    location === link.href
+                      ? "text-primary bg-primary/10"
+                      : "text-gray-300 hover:text-white hover:bg-white/5"
+                  )}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              </Link>
             ))}
           </div>
-        </motion.div>
+        </div>
       )}
     </nav>
   );

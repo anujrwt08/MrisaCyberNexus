@@ -1,218 +1,161 @@
 import Navbar from "@/components/layout/Navbar";
 import CyberCard from "@/components/ui/CyberCard";
-import GlitchText from "@/components/ui/GlitchText";
 import { motion } from "framer-motion";
-import { Shield, Terminal, Lock, Users, Trophy, ChevronRight, Code, Cpu } from "lucide-react";
-import heroBg from "@assets/generated_images/cybersecurity_network_background_with_glowing_nodes.png";
+import { Shield, Terminal, Users, Lock, ChevronRight, Globe, Cpu, Server } from "lucide-react";
+import { Link } from "wouter";
+import heroBg from "@assets/generated_images/enterprise_cybersecurity_data_center_abstract.png";
 
 export default function Home() {
+  const features = [
+    {
+      title: "Offensive Security",
+      desc: "Master the art of ethical hacking, penetration testing, and vulnerability assessment in our state-of-the-art labs.",
+      icon: <Terminal size={24} />
+    },
+    {
+      title: "Defensive Operations",
+      desc: "Learn enterprise-grade blue team tactics, threat hunting, and incident response protocols.",
+      icon: <Shield size={24} />
+    },
+    {
+      title: "Research & Analysis",
+      desc: "Contribute to open-source security tools and publish research on emerging threats and zero-day vulnerabilities.",
+      icon: <Globe size={24} />
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-hidden flex flex-col">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `url(${heroBg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.4
-          }}
-        />
-        
-        {/* Overlay Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background z-0" />
-        
-        {/* Grid Overlay */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-20 z-0" />
+      <section className="relative min-h-[90vh] flex items-center pt-20">
+        {/* Background */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity"
+            style={{ backgroundImage: `url(${heroBg})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        </div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-block border border-primary/50 bg-primary/10 backdrop-blur-sm px-4 py-1 rounded mb-6 text-primary font-mono text-sm">
-              <span className="animate-pulse mr-2">●</span> SYSTEM ONLINE
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-black text-white mb-6 tracking-tighter">
-              MRISA<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">CYBER</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto font-light">
-              Securing the digital frontier. Join the elite student organization dedicated to 
-              <span className="text-primary font-mono mx-2">Ethical Hacking</span>, 
-              <span className="text-accent font-mono mx-2">Defense</span>, and 
-              <span className="text-secondary font-mono mx-2">Cyber Warfare</span>.
-            </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono font-medium mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                RECRUITING FOR FALL 2025
+              </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-primary text-black font-bold font-display text-lg rounded clip-path-slant hover:bg-white transition-colors flex items-center gap-2"
-              >
-                INITIALIZE PROTOCOL <ChevronRight />
-              </motion.button>
+              <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 leading-[1.1]">
+                Securing the <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Digital Frontier.</span>
+              </h1>
               
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border border-primary/50 text-primary font-bold font-display text-lg rounded clip-path-slant hover:bg-primary/10 transition-colors"
-              >
-                VIEW MISSIONS
-              </motion.button>
-            </div>
-          </motion.div>
+              <p className="text-lg md:text-xl text-slate-400 mb-8 max-w-2xl leading-relaxed">
+                MRISA is the premier student-led cybersecurity organization. We bridge the gap between academic theory and industry reality through hands-on training and competition.
+              </p>
+
+              <div className="flex flex-wrap gap-4">
+                <Link href="/join">
+                  <a className="px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors flex items-center gap-2">
+                    Become a Member <ChevronRight size={18} />
+                  </a>
+                </Link>
+                <Link href="/about">
+                  <a className="px-8 py-4 bg-transparent border border-white/20 text-white font-semibold rounded-lg hover:bg-white/5 transition-colors">
+                    Learn More
+                  </a>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <div className="border-y border-white/10 bg-black/50 backdrop-blur-md py-6">
-        <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-around items-center gap-8 text-center">
-          {[
-            { label: "Active Members", value: "128", color: "text-primary" },
-            { label: "CTFs Conquered", value: "42", color: "text-accent" },
-            { label: "Workshops Hosted", value: "15", color: "text-secondary" },
-            { label: "Vulnerabilities Patched", value: "892", color: "text-destructive" },
-          ].map((stat, i) => (
-            <div key={i} className="flex flex-col items-center">
-              <span className={`text-4xl font-display font-bold ${stat.color} text-glow`}>{stat.value}</span>
-              <span className="text-xs font-mono text-gray-400 uppercase tracking-widest mt-1">{stat.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* About / Features Section */}
-      <section className="py-24 relative" id="about">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 skew-x-12 -z-10" />
-        
+      {/* Features Grid */}
+      <section className="py-24 bg-background relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16">
-            <h2 className="text-4xl font-display font-bold text-white mb-4">
-              <span className="text-primary">/</span> MISSION OBJECTIVES
-            </h2>
-            <div className="h-1 w-24 bg-primary rounded-full" />
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Domain Expertise</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto">
+              Our curriculum covers the full spectrum of information security domains.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <CyberCard title="Ethical Hacking" icon={<Terminal size={24} />}>
-              Learn the art of penetration testing. We simulate real-world attacks to understand how to defend against them. From SQL injection to XSS, master the offensive tools.
-            </CyberCard>
-
-            <CyberCard title="Network Defense" icon={<Shield size={24} />}>
-              Blue Teaming is our core. Learn to harden systems, configure firewalls, and analyze traffic patterns to detect intruders before they breach the perimeter.
-            </CyberCard>
-
-            <CyberCard title="Cryptography" icon={<Lock size={24} />}>
-              Dive deep into the math that secures the world. Understanding encryption, hashing, and digital signatures is fundamental to modern security.
-            </CyberCard>
-            
-             <CyberCard title="CTF Competitions" icon={<Trophy size={24} />}>
-              Join our competitive team. We participate in global Capture The Flag events, solving puzzles in binary exploitation, forensics, and web security.
-            </CyberCard>
-
-            <CyberCard title="Secure Coding" icon={<Code size={24} />}>
-              Developers are the first line of defense. Learn to write code that is resilient to attacks and understand the OWASP Top 10 vulnerabilities.
-            </CyberCard>
-
-            <CyberCard title="Hardware Hacking" icon={<Cpu size={24} />}>
-              Explore the physical side of security. BadUSB, RFID cloning, and analyzing IoT devices. Understand the risks at the hardware level.
-            </CyberCard>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {features.map((feature, i) => (
+              <CyberCard key={i} title={feature.title} icon={feature.icon}>
+                {feature.desc}
+              </CyberCard>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Terminal / Code Section */}
-      <section className="py-20 bg-black relative border-t border-white/10">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 shadow-2xl shadow-primary/10">
-            <div className="bg-gray-800 px-4 py-2 flex items-center gap-2 border-b border-gray-700">
-              <div className="w-3 h-3 rounded-full bg-red-500" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500" />
-              <div className="w-3 h-3 rounded-full bg-green-500" />
-              <span className="ml-2 font-mono text-xs text-gray-400">user@mrisa-cyber:~</span>
+      {/* Stats Section */}
+      <section className="py-20 border-y border-white/5 bg-card/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl font-display font-bold text-white mb-2">500+</div>
+              <div className="text-sm text-slate-500 uppercase tracking-wider">Alumni</div>
             </div>
-            <div className="p-6 font-mono text-sm md:text-base bg-black/90 min-h-[300px] text-gray-300">
-              <div className="mb-4">
-                <span className="text-green-400">➜</span> <span className="text-blue-400">~</span> <span className="text-yellow-400">./init_club_protocol.sh</span>
-              </div>
-              <div className="mb-2 text-gray-400">
-                [INFO] Initializing connection...<br/>
-                [INFO] Establishing secure handshake...<br/>
-                [SUCCESS] Connection established.
-              </div>
-              <div className="mb-4">
-                <span className="text-primary">Welcome to MRISA Cyber Security Club.</span><br/>
-                We are a community of students passionate about information security.<br/>
-                Our goal is to foster the next generation of cyber professionals.
-              </div>
-              <div className="mb-4">
-                <span className="text-green-400">➜</span> <span className="text-blue-400">~</span> <span className="text-yellow-400">cat upcoming_events.txt</span>
-              </div>
-               <div className="mb-2 grid grid-cols-1 gap-2">
-                 <div className="flex gap-4">
-                   <span className="text-primary min-w-[100px]">28 NOV</span>
-                   <span>Intro to Linux & Bash Scripting</span>
-                 </div>
-                 <div className="flex gap-4">
-                   <span className="text-primary min-w-[100px]">05 DEC</span>
-                   <span>Wireshark Traffic Analysis Workshop</span>
-                 </div>
-                 <div className="flex gap-4">
-                   <span className="text-primary min-w-[100px]">12 DEC</span>
-                   <span>End of Semester CTF Challenge</span>
-                 </div>
-               </div>
-               <div className="mt-4 animate-pulse">
-                <span className="text-green-400">➜</span> <span className="text-blue-400">~</span> <span className="inline-block w-2 h-4 bg-gray-400 align-middle ml-1" />
-              </div>
+            <div>
+              <div className="text-4xl font-display font-bold text-primary mb-2">1st</div>
+              <div className="text-sm text-slate-500 uppercase tracking-wider">Regional CTF</div>
+            </div>
+            <div>
+              <div className="text-4xl font-display font-bold text-white mb-2">50+</div>
+              <div className="text-sm text-slate-500 uppercase tracking-wider">Workshops/Year</div>
+            </div>
+            <div>
+              <div className="text-4xl font-display font-bold text-white mb-2">100%</div>
+              <div className="text-sm text-slate-500 uppercase tracking-wider">Passion</div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden flex items-center justify-center" id="join">
-        <div className="absolute inset-0 bg-primary/5" />
-        <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl" />
-        <div className="absolute -right-20 -top-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
-
-        <div className="relative z-10 text-center px-4">
-          <h2 className="text-5xl font-display font-bold text-white mb-6">READY TO <span className="text-primary">BREACH?</span></h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            Join us every Thursday at 6:00 PM in the Computer Science Lab.
-            No prior experience required. Curiosity is mandatory.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-10 py-5 bg-white text-black font-bold font-display text-xl rounded shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:shadow-[0_0_50px_rgba(0,243,255,0.6)] transition-shadow"
-          >
-            JOIN THE DISCORD
-          </motion.button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-black border-t border-white/10 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center gap-2 mb-4 md:mb-0">
-            <Shield className="text-primary" size={32} />
-            <span className="font-display font-bold text-xl text-white tracking-wider">
-              MRISA<span className="text-primary">CYBER</span>
-            </span>
+      <footer className="bg-background border-t border-white/5 py-12 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div className="col-span-1 md:col-span-2">
+              <h3 className="font-display font-bold text-2xl text-white mb-4">MRISA</h3>
+              <p className="text-slate-400 max-w-sm">
+                Empowering the next generation of cybersecurity professionals through education, community, and competition.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-bold text-white mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-slate-400">
+                <li><Link href="/about"><a className="hover:text-primary transition-colors">About Us</a></Link></li>
+                <li><Link href="/team"><a className="hover:text-primary transition-colors">Our Team</a></Link></li>
+                <li><Link href="/events"><a className="hover:text-primary transition-colors">Events</a></Link></li>
+                <li><Link href="/join"><a className="hover:text-primary transition-colors">Join Now</a></Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-white mb-4">Connect</h4>
+              <ul className="space-y-2 text-slate-400">
+                <li><a href="#" className="hover:text-primary transition-colors">Discord</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">LinkedIn</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">GitHub</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Twitter</a></li>
+              </ul>
+            </div>
           </div>
-          
-          <div className="text-gray-500 font-mono text-sm text-center md:text-right">
-            <p>&copy; 2024 MRISA Cyber Security Club.</p>
-            <p>Designed for the future.</p>
+          <div className="border-t border-white/5 mt-12 pt-8 text-center text-slate-500 text-sm">
+            &copy; 2025 MRISA Club. All rights reserved.
           </div>
         </div>
       </footer>
