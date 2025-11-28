@@ -55,22 +55,22 @@ export default function Events() {
   const displayedEvents = filter === 'upcoming' ? upcomingEvents : pastEvents;
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Navbar />
       
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <h1 className="text-4xl font-display font-bold text-white mb-2">Event Calendar</h1>
-            <p className="text-slate-400">Join us for workshops, competitions, and networking.</p>
+            <h1 className="text-4xl font-display font-bold text-foreground mb-2">Event Calendar</h1>
+            <p className="text-muted-foreground">Join us for workshops, competitions, and networking.</p>
           </div>
           
-          <div className="flex bg-card border border-white/10 rounded-lg p-1">
+          <div className="flex bg-card border border-border rounded-lg p-1">
             <button 
               onClick={() => setFilter('upcoming')}
               className={cn(
                 "px-6 py-2 rounded-md text-sm font-medium transition-all",
-                filter === 'upcoming' ? "bg-primary text-black shadow-lg" : "text-slate-400 hover:text-white"
+                filter === 'upcoming' ? "bg-primary text-primary-foreground shadow-md" : "text-muted-foreground hover:text-foreground"
               )}
             >
               Upcoming
@@ -79,7 +79,7 @@ export default function Events() {
               onClick={() => setFilter('past')}
               className={cn(
                 "px-6 py-2 rounded-md text-sm font-medium transition-all",
-                filter === 'past' ? "bg-primary text-black shadow-lg" : "text-slate-400 hover:text-white"
+                filter === 'past' ? "bg-primary text-primary-foreground shadow-md" : "text-muted-foreground hover:text-foreground"
               )}
             >
               Past Events
@@ -89,10 +89,10 @@ export default function Events() {
         
         <div className="space-y-6">
           {displayedEvents.map((ev, i) => (
-            <div key={i} className="bg-card/40 backdrop-blur-sm border border-white/5 rounded-xl p-6 md:p-8 flex flex-col md:flex-row gap-8 hover:border-primary/30 transition-all group relative overflow-hidden">
+            <div key={i} className="bg-card/60 backdrop-blur-sm border border-border rounded-xl p-6 md:p-8 flex flex-col md:flex-row gap-8 hover:border-primary/30 transition-all group relative overflow-hidden shadow-sm">
               
               {/* Date Badge */}
-              <div className="flex-shrink-0 flex md:flex-col items-center justify-center w-full md:w-24 bg-white/5 rounded-lg md:aspect-square p-4 border border-white/10 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+              <div className="flex-shrink-0 flex md:flex-col items-center justify-center w-full md:w-24 bg-muted rounded-lg md:aspect-square p-4 border border-border group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                 <span className="text-3xl md:text-4xl font-bold tracking-tighter">{ev.date.day}</span>
                 <span className="text-sm font-mono uppercase tracking-widest">{ev.date.month}</span>
               </div>
@@ -100,20 +100,20 @@ export default function Events() {
               {/* Content */}
               <div className="flex-grow space-y-3">
                 <div className="flex items-center gap-3">
-                  <span className="px-2 py-1 rounded bg-secondary/50 text-xs font-mono text-white border border-white/10 uppercase tracking-wide">
+                  <span className="px-2 py-1 rounded bg-secondary/20 text-secondary-foreground font-bold text-xs font-mono border border-secondary/30 uppercase tracking-wide">
                     {ev.type}
                   </span>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
                   {ev.title}
                 </h3>
                 
-                <p className="text-slate-400 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   {ev.desc}
                 </p>
 
-                <div className="flex flex-wrap gap-6 text-sm text-slate-500 pt-2">
+                <div className="flex flex-wrap gap-6 text-sm text-muted-foreground pt-2">
                   <div className="flex items-center gap-2">
                     <Clock size={16} className="text-primary/70" />
                     {ev.time}
@@ -127,8 +127,8 @@ export default function Events() {
 
               {/* Action */}
               {filter === 'upcoming' && (
-                <div className="flex md:flex-col justify-center md:pl-6 md:border-l border-white/5">
-                  <button className="w-full md:w-auto px-6 py-3 rounded-lg bg-white text-black font-bold hover:bg-primary hover:text-black transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
+                <div className="flex md:flex-col justify-center md:pl-6 md:border-l border-border">
+                  <button className="w-full md:w-auto px-6 py-3 rounded-lg bg-foreground text-background font-bold hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
                     RSVP Now <ArrowRight size={16} />
                   </button>
                 </div>

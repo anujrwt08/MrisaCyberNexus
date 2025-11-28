@@ -57,7 +57,7 @@ const volunteers = [
 
 export default function Team() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Navbar />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
@@ -68,8 +68,8 @@ export default function Team() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Our People</h1>
-            <p className="text-slate-400 max-w-2xl mx-auto text-lg">
+            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">Our People</h1>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               The dedicated individuals who make MRISA the premier cybersecurity community.
               From industry veterans to student leaders.
             </p>
@@ -80,7 +80,7 @@ export default function Team() {
         <section className="mb-24">
           <div className="flex items-center gap-4 mb-10">
             <div className="p-2 bg-primary/10 rounded-lg text-primary"><GraduationCap size={24} /></div>
-            <h2 className="text-3xl font-display font-bold text-white">Faculty & Mentors</h2>
+            <h2 className="text-3xl font-display font-bold text-foreground">Faculty & Mentors</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -92,14 +92,14 @@ export default function Team() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="bg-card/30 border border-white/10 rounded-xl p-8 flex flex-col md:flex-row gap-8 items-center md:items-start hover:border-primary/30 transition-all">
-                  <div className="w-32 h-32 flex-shrink-0 rounded-full overflow-hidden border-2 border-primary/20">
+                <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-8 flex flex-col md:flex-row gap-8 items-center md:items-start hover:border-primary/30 transition-all shadow-sm">
+                  <div className="w-32 h-32 flex-shrink-0 rounded-full overflow-hidden border-2 border-border">
                     <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                   </div>
                   <div className="text-center md:text-left">
-                    <h3 className="text-2xl font-bold text-white mb-1">{member.name}</h3>
+                    <h3 className="text-2xl font-bold text-foreground mb-1">{member.name}</h3>
                     <span className="text-primary font-mono text-sm uppercase tracking-wider mb-4 block">{member.role}</span>
-                    <p className="text-slate-400 leading-relaxed">{member.bio}</p>
+                    <p className="text-muted-foreground leading-relaxed">{member.bio}</p>
                   </div>
                 </div>
               </motion.div>
@@ -111,7 +111,7 @@ export default function Team() {
         <section className="mb-24">
           <div className="flex items-center gap-4 mb-10">
             <div className="p-2 bg-primary/10 rounded-lg text-primary"><Award size={24} /></div>
-            <h2 className="text-3xl font-display font-bold text-white">Core Leadership</h2>
+            <h2 className="text-3xl font-display font-bold text-foreground">Core Leadership</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -124,13 +124,13 @@ export default function Team() {
                 transition={{ delay: i * 0.1 }}
               >
                 <CyberCard className="h-full flex flex-col items-center text-center pt-8">
-                  <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-white/10 mb-4 group-hover:border-primary transition-colors">
+                  <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-border mb-4 group-hover:border-primary transition-colors">
                     <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-1">{member.name}</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-1">{member.name}</h3>
                   <span className="text-primary text-xs font-mono uppercase mb-3 block">{member.role}</span>
-                  <p className="text-slate-400 text-sm mb-6 flex-grow">{member.bio}</p>
-                  <div className="flex gap-3 text-slate-500 pt-4 border-t border-white/5 w-full justify-center">
+                  <p className="text-muted-foreground text-sm mb-6 flex-grow">{member.bio}</p>
+                  <div className="flex gap-3 text-muted-foreground pt-4 border-t border-border w-full justify-center">
                     <a href="#" className="hover:text-primary transition-colors"><Linkedin size={16} /></a>
                     <a href="#" className="hover:text-primary transition-colors"><Twitter size={16} /></a>
                   </div>
@@ -144,18 +144,18 @@ export default function Team() {
         <section>
           <div className="flex items-center gap-4 mb-10">
             <div className="p-2 bg-primary/10 rounded-lg text-primary"><UserPlus size={24} /></div>
-            <h2 className="text-3xl font-display font-bold text-white">Volunteers</h2>
+            <h2 className="text-3xl font-display font-bold text-foreground">Volunteers</h2>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {volunteers.map((vol, i) => (
-              <div key={i} className="bg-card/20 border border-white/5 rounded-lg p-4 flex items-center gap-4 hover:bg-card/40 transition-colors">
-                <div className="w-10 h-10 rounded-full overflow-hidden bg-white/5">
+              <div key={i} className="bg-card border border-border rounded-lg p-4 flex items-center gap-4 hover:bg-accent/10 transition-colors">
+                <div className="w-10 h-10 rounded-full overflow-hidden bg-muted">
                   <img src={vol.image} alt={vol.name} className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <div className="font-bold text-white text-sm">{vol.name}</div>
-                  <div className="text-xs text-slate-500">{vol.role}</div>
+                  <div className="font-bold text-foreground text-sm">{vol.name}</div>
+                  <div className="text-xs text-muted-foreground">{vol.role}</div>
                 </div>
               </div>
             ))}

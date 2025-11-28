@@ -3,7 +3,8 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { ScrollToTop } from "@/components/utils/ScrollToTop"; // We'll create this
+import { ThemeProvider } from "@/components/theme-provider";
+import { ScrollToTop } from "@/components/utils/ScrollToTop";
 
 import Home from "@/pages/Home";
 import About from "@/pages/About";
@@ -30,11 +31,13 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <ScrollToTop />
-        <Router />
-      </TooltipProvider>
+      <ThemeProvider defaultTheme="dark" storageKey="mrisa-theme">
+        <TooltipProvider>
+          <Toaster />
+          <ScrollToTop />
+          <Router />
+        </TooltipProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

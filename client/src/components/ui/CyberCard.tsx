@@ -14,19 +14,19 @@ export default function CyberCard({ children, className, title, subtitle, icon }
     <motion.div
       whileHover={{ y: -5 }}
       className={cn(
-        "relative overflow-hidden rounded-xl bg-card/40 backdrop-blur-md border border-white/5 p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 group",
+        "relative overflow-hidden rounded-xl bg-card/50 backdrop-blur-md border border-border p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 group",
         className
       )}
     >
       {/* Subtle Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
       {/* Header if provided */}
       {(title || icon) && (
         <div className="relative z-10 mb-4">
           <div className="flex items-start justify-between">
             <div className="space-y-1">
-              {title && <h3 className="font-display text-xl font-semibold text-white tracking-tight">{title}</h3>}
+              {title && <h3 className="font-display text-xl font-semibold text-card-foreground tracking-tight">{title}</h3>}
               {subtitle && <p className="text-sm text-muted-foreground font-sans">{subtitle}</p>}
             </div>
             {icon && (
@@ -39,7 +39,7 @@ export default function CyberCard({ children, className, title, subtitle, icon }
       )}
       
       {/* Content */}
-      <div className="relative z-10 text-gray-300 font-sans leading-relaxed">
+      <div className="relative z-10 text-muted-foreground font-sans leading-relaxed">
         {children}
       </div>
     </motion.div>
