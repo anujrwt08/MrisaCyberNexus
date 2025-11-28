@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Shield, ChevronRight } from "lucide-react";
+import { Menu, X, Shield } from "lucide-react";
 import logo from "@assets/generated_images/minimalist_cybersecurity_shield_logo.png";
 import { cn } from "@/lib/utils";
 
@@ -74,15 +74,6 @@ export default function Navbar() {
                 </Link>
               ))}
             </div>
-          </div>
-
-          {/* CTA Button (Desktop) */}
-          <div className="hidden md:block">
-             <Link href="/join">
-              <a className="inline-flex items-center gap-2 px-5 py-2 bg-primary hover:bg-primary/90 text-background font-bold text-sm rounded transition-colors">
-                Member Portal <ChevronRight size={16} />
-              </a>
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
