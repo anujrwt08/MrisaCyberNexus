@@ -18,6 +18,18 @@ const faculty = [
     role: "Industry Mentor",
     bio: "CISO at CyberTech Solutions. Provides career guidance and industry insights to club members.",
     image: femalePlaceholder
+  },
+  {
+    name: "Dr. Robert Vance",
+    role: "Faculty Advisor",
+    bio: "Professor of Computer Science. Research focus on Post-Quantum Cryptography and Network Protocols.",
+    image: mentorPlaceholder
+  },
+  {
+    name: "Prof. Elena Rodriguez",
+    role: "Industry Mentor",
+    bio: "CISO at CyberTech Solutions. Provides career guidance and industry insights to club members.",
+    image: femalePlaceholder
   }
 ];
 
@@ -49,6 +61,10 @@ const coreTeam = [
 ];
 
 const volunteers = [
+  { name: "Michael Chang", role: "Event Volunteer", image: malePlaceholder },
+  { name: "Emily Davis", role: "Workshop Helper", image: femalePlaceholder },
+  { name: "James Wilson", role: "Lab Maintainer", image: malePlaceholder },
+  { name: "Sophia Li", role: "Social Media", image: femalePlaceholder },
   { name: "Michael Chang", role: "Event Volunteer", image: malePlaceholder },
   { name: "Emily Davis", role: "Workshop Helper", image: femalePlaceholder },
   { name: "James Wilson", role: "Lab Maintainer", image: malePlaceholder },
