@@ -38,17 +38,17 @@ export default function Join() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-muted-foreground">First Name</label>
-                <input type="text" className="w-full bg-background border border-border rounded-lg px-4 py-2 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors" placeholder="Jane" />
+                <input type="text" className="w-full bg-background border border-border rounded-lg px-4 py-2 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors" placeholder="first" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-muted-foreground">Last Name</label>
-                <input type="text" className="w-full bg-background border border-border rounded-lg px-4 py-2 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors" placeholder="Doe" />
+                <input type="text" className="w-full bg-background border border-border rounded-lg px-4 py-2 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors" placeholder="last" />
               </div>
             </div>
             
             <div className="space-y-2">
               <label className="text-sm font-medium text-muted-foreground">Student Email</label>
-              <input type="email" className="w-full bg-background border border-border rounded-lg px-4 py-2 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors" placeholder="jane.doe@university.edu" />
+              <input type="email" className="w-full bg-background border border-border rounded-lg px-4 py-2 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors" placeholder="student@gmail.com" />
             </div>
 
             <div className="space-y-2">
