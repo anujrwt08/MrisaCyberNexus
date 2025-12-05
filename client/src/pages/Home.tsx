@@ -153,8 +153,8 @@ export default function Home() {
               <ul className="space-y-2 text-muted-foreground">
                 <li><a href="#" className="hover:text-primary transition-colors">Discord</a></li>
                 <li><a href="https://www.linkedin.com/in/anujrawat08/" className="hover:text-primary transition-colors">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/in/anujrawat08/" className="hover:text-primary transition-colors">LinkedIn</a></li>
                 <li><a href="https://github.com/anujrwt08" className="hover:text-primary transition-colors">GitHub</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Twitter</a></li>
               </ul>
             </div>
           </div>
