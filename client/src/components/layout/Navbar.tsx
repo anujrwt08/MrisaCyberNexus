@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronRight } from "lucide-react";
-import logo from "@assets/generated_images/minimalist_cybersecurity_shield_logo.png";
+import logo from "@/assets/images/minimalist_cybersecurity_shield_logo.png";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 

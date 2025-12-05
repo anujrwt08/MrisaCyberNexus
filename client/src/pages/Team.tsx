@@ -2,9 +2,9 @@ import Navbar from "@/components/layout/Navbar";
 import CyberCard from "@/components/ui/CyberCard";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, GraduationCap, UserPlus, Award } from "lucide-react";
-import malePlaceholder from "@assets/generated_images/professional_team_member_placeholder_male.png";
-import femalePlaceholder from "@assets/generated_images/professional_team_member_placeholder_female.png";
-import mentorPlaceholder from "@assets/generated_images/professional_mentor_or_professor_headshot.png";
+import malePlaceholder from "@/assets/images/professional_team_member_placeholder_male.png";
+import femalePlaceholder from "@/assets/images/professional_team_member_placeholder_female.png";
+import mentorPlaceholder from "@/assets/images/professional_mentor_or_professor_headshot.png";
 
 const faculty = [
   {

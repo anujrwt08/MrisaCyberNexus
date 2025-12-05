@@ -3,7 +3,7 @@ import CyberCard from "@/components/ui/CyberCard";
 import { motion } from "framer-motion";
 import { Shield, Terminal, Globe, ChevronRight } from "lucide-react";
 import { Link } from "wouter";
-import heroBg from "@assets/generated_images/enterprise_cybersecurity_data_center_abstract.png";
+import heroBg from "@/assets/images/enterprise_cybersecurity_data_center_abstract.png";
 
 export default function Home() {
   const features = [
