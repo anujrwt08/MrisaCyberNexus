@@ -152,8 +152,8 @@ export default function Home() {
               <h4 className="font-bold text-foreground mb-4">Connect</h4>
               <ul className="space-y-2 text-muted-foreground">
                 <li><a href="#" className="hover:text-primary transition-colors">Discord</a></li>
-                <li><a href="https://www.linkedin.com/in/anujrawat08/" className="hover:text-primary transition-colors">LinkedIn</a></li>
-                <li><a href="https://github.com/anujrwt08" className="hover:text-primary transition-colors">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/anujrawat08/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a></li>
+                <li><a href="https://github.com/anujrwt08" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a></li>
               </ul>
             </div>
           </div>
