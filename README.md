@@ -9,11 +9,10 @@ MRISA is dedicated to bridging the gap between academic theory and industry real
 ## ✨ Features
 
 - **Modern Tech Stack**: Built with React, TypeScript, and Vite for blazing-fast performance
-- **Responsive Design**: Fully responsive design with shadcn/ui components
+- **Responsive Design**: Fully responsive design with sleek aesthetics
 - **Dark/Light Mode**: Seamless theme switching with persistent preferences
-- **Express Backend**: Robust server-side implementation with Express.js
-- **Database Integration**: Neon PostgreSQL with Drizzle ORM
 - **Cyber-themed UI**: Custom cyber-styled components including GlitchText and CyberCard
+- **Animations**: Smooth transitions powered by Framer Motion
 
 ## 🚀 Quick Start
 
@@ -25,55 +24,53 @@ MRISA is dedicated to bridging the gap between academic theory and industry real
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd MrisaCyberNexus
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
-```
-
-3. Set up environment variables:
-Create a `.env` file in the root directory with necessary configuration.
-
-4. Push database schema:
-```bash
-npm run db:push
 ```
 
 ### Development
 
 Start the development server:
+
 ```bash
 npm run dev
 ```
 
-The application will be available at **http://localhost:5000**
+The application will be available at **http://localhost:5173**
 
 ### Production Build
 
 Build the application for production:
+
 ```bash
 npm run build
 ```
 
-Start the production server:
+This generates a static output in the `dist` directory.
+
+### Preview Production Build
+
+Preview the built application:
+
 ```bash
-npm start
+npm run preview
 ```
 
 ## 📜 Available Scripts
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start development server with hot reload |
-| `npm run dev:client` | Start Vite dev server only (port 5000) |
-| `npm run build` | Build for production |
-| `npm start` | Run production server |
-| `npm run check` | Run TypeScript type checking |
-| `npm run db:push` | Push database schema changes |
+| Script            | Description                              |
+| ----------------- | ---------------------------------------- |
+| `npm run dev`     | Start development server with hot reload |
+| `npm run build`   | Build for production                     |
+| `npm run preview` | Preview production build                 |
 
 ## 🏗️ Project Structure
 
@@ -81,23 +78,17 @@ npm start
 MrisaCyberNexus/
 ├── client/                 # Frontend React application
 │   ├── src/
-│   │   ├── components/    # React components
+│   │   ├── assets/       # Static assets (images, etc.)
+│   │   ├── components/   # React components
 │   │   │   ├── layout/   # Layout components (Navbar, etc.)
-│   │   │   ├── ui/       # UI components (shadcn/ui)
+│   │   │   ├── ui/       # UI components
 │   │   │   └── utils/    # Utility components
 │   │   ├── pages/        # Page components
 │   │   ├── hooks/        # Custom React hooks
 │   │   ├── lib/          # Utilities and configs
 │   │   └── App.tsx       # Main app component
 │   └── index.html
-├── server/                # Backend Express application
-│   ├── index.ts          # Server entry point
-│   ├── routes.ts         # API routes
-│   ├── vite.ts           # Vite middleware
-│   └── storage.ts        # Storage utilities
-├── shared/               # Shared code between client/server
-│   └── schema.ts         # Database schema
-├── script/              # Build scripts
+├── dist/                  # Production build output
 └── package.json
 ```
 
@@ -113,36 +104,28 @@ MrisaCyberNexus/
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - **React 18** - UI library
 - **TypeScript** - Type safety
 - **Vite** - Build tool and dev server
 - **Wouter** - Lightweight routing
 - **TanStack Query** - Data fetching and caching
 - **Framer Motion** - Animations
-- **shadcn/ui** - UI component library
 - **Tailwind CSS** - Styling
-- **Radix UI** - Headless UI primitives
-
-### Backend
-- **Express** - Web framework
-- **TypeScript** - Type safety
-- **Drizzle ORM** - Database ORM
-- **Neon PostgreSQL** - Database
-
-### DevOps
-- **tsx** - TypeScript execution
-- **cross-env** - Cross-platform environment variables
-- **esbuild** - Fast JavaScript bundler
+- **Lucide React** - Icons
 
 ## 🎯 Core Features
 
 ### Offensive Security
+
 Master ethical hacking, penetration testing, and vulnerability assessment in state-of-the-art labs.
 
 ### Defensive Operations
+
 Learn enterprise-grade blue team tactics, threat hunting, and incident response protocols.
 
 ### Research & Analysis
+
 Contribute to open-source security tools and publish research on emerging threats and zero-day vulnerabilities.
 
 ## 🤝 Contributing
